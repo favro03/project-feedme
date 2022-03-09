@@ -19,22 +19,22 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    /*  !!!!!!!!!UPDTAE THIS SECTION WHEN THE COMMENTS AND RECIPES MODELS ARE COMPLETED!!!!!!!!!!!
+   
     include: [
-      {
+      /*{
         model: Recipes,
         attributes: ['id', 'title', 'created_at']
-      },
+      },*/
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'created_at'],
+        attributes: ['id', 'comment_text', 'created_at']/*,
         include: {
           model: Recipes,
           attributes: ['title']
-        }
+        }*/
       },
     ]
-    */
+    
   })
     .then(dbUserData => {
       if (!dbUserData) {
