@@ -16,18 +16,32 @@ Recipe.init(
             allowNull: false,
         },
         ingredients: {
-            type: DataYypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         direction: {
-            type: DataYypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         description: {
-            type: DataYypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         }
+    },
+    {
+     sequelize,
+     freezeTableName: true,
+     underscored: true,
+     modelName: 'recipes'
     }
-)
+);
 
 module.exports = Recipe;
