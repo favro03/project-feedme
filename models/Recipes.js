@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Recipe extends Model {}
@@ -20,21 +20,13 @@ Recipe.init(
             allowNull: false,
         },
         direction: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(varchar(2000)),
             allowNull: false,
         },
         description: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        }
     },
     {
      sequelize,
