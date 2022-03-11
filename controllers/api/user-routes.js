@@ -23,15 +23,15 @@ router.get('/:id', (req, res) => {
       /*{
         model: Recipe,
         attributes: ['id', 'name', 'created_at']
-      },
+      },*/
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'created_at'],
-        include: {
-          model: Post,
-          attributes: ['name']
-        }
-      }*/
+        //include: {
+          //model: Recipes,
+          //attributes: ['name']
+        //}
+      }
     ]
   })
     .then(dbUserData => {
