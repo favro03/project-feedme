@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment} = require('../../models');
+const { Recipes, User, Comment} = require('../../models');
 const Recipe = require('../../models/Recipes');
 const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
   console.log('======================');
-  Recipe.findAll({
+  Recipes.findAll({
     attributes: [
       'id',
       'name',
@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Recipe.findOne({
+  Recipes.findOne({
     where: {
       id: req.params.id
     },
@@ -79,7 +79,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
   // expects {name, ingredients, direction, description, user_id: 1}
-  Recipe.create({
+  Recipes.create({
     name: req.body.name,
     ingredients: req.body.ingredients,
     direction: req.body.direction,
@@ -95,7 +95,7 @@ router.post('/', withAuth, (req, res) => {
 
 
 router.put('/:id', withAuth, (req, res) => {
-  Recipe.update(
+  Recipes.update(
     {
       name: req.body.name
     },
@@ -120,7 +120,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
-  Recipe.destroy({
+  Recipes.destroy({
     where: {
       id: req.params.id
     }
