@@ -1,12 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Recipes, User, Comment} = require('../../models');
-const Recipe = require('../../models/Recipes');
 const withAuth = require('../../utils/auth');
+
 
 // get all users
 router.get('/', (req, res) => {
-  console.log('======================');
   Recipes.findAll({
     attributes: [
       'id',
@@ -14,6 +13,7 @@ router.get('/', (req, res) => {
       'ingredients',
       'direction',
       'description',
+      'created_at'
     ],
     include: [
       {
@@ -37,6 +37,8 @@ router.get('/', (req, res) => {
     });
 });
 
+
+
 router.get('/:id', (req, res) => {
   Recipes.findOne({
     where: {
@@ -48,6 +50,7 @@ router.get('/:id', (req, res) => {
         'ingredients',
         'direction',
         'description',
+        'created_at'
     ],
     include: [
       {
@@ -66,7 +69,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No recipe found with this id' });
         return;
       }
       res.json(dbPostData);
@@ -97,7 +100,10 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Recipes.update(
     {
-      name: req.body.name
+      name: req.body.name,
+      ingredients: req.body.ingredients,
+      direction: req.body.direction,
+      description: req.body.description,
     },
     {
       where: {
@@ -127,7 +133,7 @@ router.delete('/:id', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No recipe found with this id' });
         return;
       }
       res.json(dbPostData);

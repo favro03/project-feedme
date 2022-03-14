@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Recipe, Comment } = require('../../models');
+const { User, Recipes, Comment } = require('../../models');
 //GET/POST/PUT/DELETE routes
 // get all users
 router.get('/', (req, res) => {
@@ -20,17 +20,17 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     include: [
-      /*{
-        model: Recipe,
-        attributes: ['id', 'name', 'created_at']
-      },*/
+      {
+        model: Recipes,
+        attributes: ['id', 'name', 'ingredients', 'direction','description', 'created_at']
+      },
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'created_at'],
-        //include: {
-          //model: Recipes,
-          //attributes: ['name']
-        //}
+        include: {
+          model: Recipes,
+          attributes: ['name']
+        }
       }
     ]
   })
@@ -96,8 +96,12 @@ router.post('/login', (req, res) => {
     
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  });
+});
   
   router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {

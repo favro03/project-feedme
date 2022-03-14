@@ -1,0 +1,29 @@
+<div class="card">
+    <h3 class="card-header">Create A New Recipe</h3>
+    <form class="card-body new-recipes-form" id="new-recipes-form">
+        <label for="recipes-name" class="form-label">Name</label>
+        <input type="text" id="recipes-name" name="recipes-name" class="form-input" />
+
+
+        <label class="form-label" for="recipes-ingredients">Ingredients</label>
+        <input id="recipes-ingredients" name="recipes-ingredients" class="form-input" />
+
+        <label class="form-label" for="recipes-direction">Directions</label>
+        <input id="recipes-direction" name="recipes-direction" class="form-input" />
+
+        <label class="form-label" for="recipes-description">Description</label>
+        <input id="recipes-description" name="recipes-description" class="form-input" />
+        <div>
+            <form action="/store-image" method="POST" enctype="multipart/form-data">
+                <label>Store Image</label><br><br>
+   
+                 <input type="file"  name="image" multiple>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <button type="submit" class="btn">Create</button>
+    </form>
+</div>
+
+<script src="/javascript/add-recipes.js"></script>
+

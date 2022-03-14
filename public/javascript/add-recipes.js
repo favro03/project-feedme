@@ -4,7 +4,7 @@ async function newFormHandler(event) {
   
     const name = document.querySelector('input[name="recipes-name"]').value;
     const ingredients = document.querySelector('input[name="recipes-ingredients"]').value;
-    const directions = document.querySelector('input[name="recipes-directions"]').value;
+    const direction = document.querySelector('input[name="recipes-direction"]').value;
     const description = document.querySelector('input[name="recipes-description"]').value;
   
     const response = await fetch(`/api/recipes`, {
@@ -12,7 +12,7 @@ async function newFormHandler(event) {
       body: JSON.stringify({
         name,
         ingredients,
-        directions,
+        direction,
         description
 
       }),

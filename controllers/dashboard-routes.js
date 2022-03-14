@@ -73,7 +73,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       if (dbPostData) {
         const recipes = dbPostData.get({ plain: true });
         
-        res.render('edit-post', {
+        res.render('edit-recipes', {
           recipes,
           loggedIn: true
         });
