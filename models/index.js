@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-const Recipe = require('./Recipes')
-
-module.exports = {Recipe}
-=======
 const Recipes = require('./Recipes')
 const User = require('./User')
 const Comment = require('./Comment')
@@ -33,4 +28,3 @@ User.hasMany(Recipes, {
   });
 
 module.exports = {Recipes, User, Comment}
->>>>>>> develop

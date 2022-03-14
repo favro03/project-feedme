@@ -9,7 +9,3 @@ router.use('/recipes', recipesRoutes);
 router.use('/comments', commentRoutes);
 
 module.exports = router;
-<<<<<<< HEAD
-=======
-
->>>>>>> develop

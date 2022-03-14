@@ -16,16 +16,13 @@ Recipe.init(
             allowNull: false,
         },
         ingredients: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         direction: {
-<<<<<<< HEAD
             type: DataTypes.TEXT,
-=======
-            type: DataTypes.STRING,
->>>>>>> develop
             allowNull: false,
+            defaultValue: 'test'
         },
         description: {
             type: DataTypes.TEXT,
