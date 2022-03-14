@@ -20,11 +20,11 @@ Recipe.init(
             allowNull: false,
         },
         direction: {
-            type: DataTypes.STRING(varchar(2000)),
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
     },
