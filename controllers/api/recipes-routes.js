@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Recipe} = require('../../models');
+const {Recipes} = require('../../models');
 
 router.get('/', (req,res) => {
 

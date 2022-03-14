@@ -1,14 +1,46 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Recipes, User, Comment } = require('../models');
 //GET/POST/PUT/DELETE routes
 // get all posts for homepage
 
-router.get('/', (req, res) => {
-    res.render('homepage', {
-        loggedIn: req.session.loggedIn 
-    });   
-});
+router.get('/', (req,res) => {
+  Recipes.findAll({
+    attributes: [
+       'id',
+        'name',
+        'ingredients',
+        'direction',
+        'description'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      }
+    ]
+  })
+    .then(dbPostData => {
+      const Recipe = dbPostData.map(post => post.get({ plain: true }));
+
+      res.render('homepage', {
+        Recipe
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+})
+// router.get('/', (req, res) => {
+//     res.render('homepage', {
+//         loggedIn: req.session.loggedIn 
+//     });   
+// });
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -20,6 +52,55 @@ router.get('/login', (req, res) => {
 
   router.get('/signup', (req, res) => {
     res.render('signup');
+  });
+
+router.get('/recipe/:id', (req, res) => {
+    Recipes.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'name',
+        'ingredients',
+        'direction',
+        'description'
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        }
+      ]
+    })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+
+      // serialize the data
+      const recipe = dbPostData.get({ plain: true });
+
+      recipe.ingredients = recipe.ingredients.split('|');
+
+      recipe.direction = recipe.direction.split('|')
+
+      console.log(recipe.comments)
+
+      // pass data to template
+      res.render('recipe', {
+        recipe
+      });
+    })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   });
 
 
