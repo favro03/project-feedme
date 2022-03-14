@@ -20,7 +20,11 @@ Recipe.init(
             allowNull: false,
         },
         direction: {
+<<<<<<< HEAD
             type: DataTypes.TEXT,
+=======
+            type: DataTypes.STRING,
+>>>>>>> develop
             allowNull: false,
         },
         description: {
