@@ -1,0 +1,18 @@
+<h2>{{recipe.name}}</h2>
+
+<ul class='ingrediants'>
+    {{#each recipe.ingredients}}
+        <li>
+            {{this}}
+        </li>
+    {{/each}}
+</ul>
+
+<ol class='directions'>
+    {{#each recipe.direction}}
+        <li>
+            {{this}}
+        </li>
+    {{/each}}
+</ol>
+

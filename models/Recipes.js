@@ -16,17 +16,19 @@ Recipe.init(
             allowNull: false,
         },
         ingredients: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         direction: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
+            defaultValue: 'test'
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
+<<<<<<< HEAD
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -35,6 +37,12 @@ Recipe.init(
             }
         }
         
+=======
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+>>>>>>> origin/develop
     },
     {
      sequelize,
