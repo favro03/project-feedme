@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Recipes, User, Comment } = require('../models');
+
 //GET/POST/PUT/DELETE routes
 // get all posts for homepage
 
@@ -28,7 +29,7 @@ router.get('/', (req,res) => {
       const Recipe = dbPostData.map(post => post.get({ plain: true }));
 
       res.render('homepage', {
-        Recipe
+        Recipe, loggedIn: req.session.loggedIn
       });
     })
     .catch(err => {
@@ -36,11 +37,11 @@ router.get('/', (req,res) => {
       res.status(500).json(err);
     });
 })
-// router.get('/', (req, res) => {
-//     res.render('homepage', {
-//         loggedIn: req.session.loggedIn 
-//     });   
-// });
+ router.get('/', (req, res) => {
+     res.render('homepage', {
+         loggedIn: req.session.loggedIn 
+    });   
+});
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -64,7 +65,8 @@ router.get('/recipe/:id', (req, res) => {
         'name',
         'ingredients',
         'direction',
-        'description'
+        'description',
+        'created_at',
       ],
       include: [
         {
@@ -94,7 +96,7 @@ router.get('/recipe/:id', (req, res) => {
 
       // pass data to template
       res.render('recipe', {
-        recipe
+        recipe,  loggedIn: req.session.loggedIn
       });
     })
       .catch(err => {
@@ -106,4 +108,3 @@ router.get('/recipe/:id', (req, res) => {
 
 
 module.exports = router;
-

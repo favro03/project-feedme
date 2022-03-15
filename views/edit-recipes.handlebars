@@ -1,0 +1,22 @@
+<div class="card">
+    <h3 class="card-header">Edit Recipe</h3>
+    <form class="card-body edit-recipes-form">
+        <label for="recipes-name" class="form-label">Name</label>
+        <input name="recipes-name" type="text" value="{{recipes.name}}" class="form-input" />
+       
+       <label for="recipes-ingredients" class="form-label">Ingredients</label>
+        <input name="recipes-ingredients" type="text" value="{{recipes.ingredients}}" class="form-input" />
+       
+       <label for="recipes-direction" class="form-label">Drections</label>
+        <input name="recipes-direction" type="text" value="{{recipes.direction}}" class="form-input" />
+       
+       <label for="recipes-description" class="form-label">Description</label>
+        <input name="recipes-description" type="text" value="{{recipes.description}}" class="form-input" />
+       
+        <button type="submit" class="btn">Update Recipe</button>
+        <button type="button" class="delete-recipes-btn btn">Delete Recipe</button>
+    </form>
+</div>
+
+<script src="/javascript/edit-recipes.js"></script>
+<script src="/javascript/delete-recipes.js"></script>

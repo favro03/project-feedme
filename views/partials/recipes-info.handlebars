@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header">
+       <h2><a class="link" href="/recipes/{{id}}">{{recipe.name}}</a></h2>
+       <ul class='ingrediants'>
+        {{#each recipe.ingredients}}
+        <li>
+            {{this}}
+        </li>
+        {{/each}}
+      </ul>
+
+<ol class='directions'>
+    {{#each recipe.direction}}
+        <li>
+            {{this}}
+        </li>
+    {{/each}}
+</ol>
+
+      <p>Posted by {{user.username}} on {{format_date created_at}}</p>
+    </div>
+        <p class="card-body">{{recipes_content}}</p>
+</div>
+
