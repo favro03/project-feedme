@@ -4,45 +4,45 @@ const { Recipes, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 //GET/POST/PUT/DELETE routes
 // get all posts for dashboard
-router.get('/', withAuth, (req, res) => {
-    Recipes.findAll({
-      where: {
-        // use the ID from the session
-        user_id: req.session.user_id
-      },
-      attributes: [
-        'id',
+router.get('/', withAuth, (req,res) => {
+  Recipes.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+       'id',
         'name',
         'ingredients',
         'direction',
         'description',
-        'created_at',
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'recipes_id', 'user_id', 'created_at'],
+        'created_at'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'recipes_id', 'user_id', 'created_at'],
         include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
-        {
           model: User,
           attributes: ['username']
         }
-      ]
-    })
-      .then(dbPostData => {
-        
-        const recipes = dbPostData.map(recipes => recipes.get({ plain: true }));
-        res.render('dashboard', { recipes, loggedIn: true });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+      },
+      {model: User,
+      attributes: ['username']
+    }
+    ]
+  })
+    .then(dbPostData => {
+      const recipes = dbPostData.map(recipes => recipes.get({ plain: true }));
+
+      res.render('dashboard', {
+        recipes, loggedIn: true
       });
-  });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+})
 
 router.get('/edit/:id', withAuth, (req, res) => {
   Recipes.findByPk(req.params.id, {
