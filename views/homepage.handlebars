@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-<article class="recipes">
-  {{#each recipes as |recipes|}}
-  
-    {{> recipes-info recipes }}
-  
-  {{/each}}
-
-</article>
-
-=======
 {{#each Recipe as |Recipe|}}
 <article class="post">
   <div class="title">
@@ -18,16 +7,3 @@
 </article>
 {{/each}}
 
-<div class="comments">
-  {{#each this}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}}
-    </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
-  {{/each}}
-</div>
->>>>>>> origin/develop

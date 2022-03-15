@@ -1,46 +1,43 @@
 const router = require('express').Router();
-<<<<<<< HEAD
 const sequelize = require('../../config/connection');
 const { Recipes, User, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
-=======
-const {Recipes} = require('../../models');
->>>>>>> origin/develop
 
 
 // get all users
-router.get('/', (req, res) => {
+router.get('/', (req,res) => {
   Recipes.findAll({
     attributes: [
-      'id',
-      'name',
-      'ingredients',
-      'direction',
-      'description',
-      'created_at'
+       'id',
+        'name',
+        'ingredients',
+        'direction',
+        'description'
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'recipes_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
       }
     ]
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbPostData => {
+      const Recipe = dbPostData.map(post => post.get({ plain: true }));
+
+      res.render('homepage', {
+        Recipe
+      });
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
-});
-
+})
+ 
 
 
 router.get('/:id', (req, res) => {
@@ -49,11 +46,11 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     attributes: [
-        'id',
-        'name',
-        'ingredients',
-        'direction',
-        'description',
+      'id',
+      'name',
+      'ingredients',
+      'direction',
+      'description',
         'created_at'
     ],
     include: [

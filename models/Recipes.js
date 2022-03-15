@@ -28,21 +28,17 @@ Recipe.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-<<<<<<< HEAD
         user_id: {
             type: DataTypes.INTEGER,
             references: {
               model: 'user',
               key: 'id'
             }
-        }
-        
-=======
+        },
         image: {
             type: DataTypes.STRING,
             allowNull: false
         }
->>>>>>> origin/develop
     },
     {
      sequelize,
@@ -53,3 +49,4 @@ Recipe.init(
 );
 
 module.exports = Recipe;
+
