@@ -28,9 +28,17 @@ Recipe.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'user',
+              key: 'id'
+            }
+        },
         image: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue: 'test'
         }
     },
     {
@@ -42,3 +50,4 @@ Recipe.init(
 );
 
 module.exports = Recipe;
+
