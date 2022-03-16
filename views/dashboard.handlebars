@@ -1,21 +1,42 @@
-{{#if recipes.length}}
-<section>
-  <h2>Your Recipe</h2>
+{{!-- {{#if recipes.length}}
+<section class="w3-container w3-center">
+  <div class="w3-container column row" id="rcorners2">
+  <h2 class="w3-center eleven">Your Recipe</h2>
  
     {{#each recipes as |recipes|}}
     
-     <div class="card">
-      <div class="card-header">
-        <h4><a class="link" href="/dashboard/edit/{{id}}">{{name}}</a></h4>
+     <div class="w3-container column" id="rcorners2">
+      <div >
+        <h4 class="w3-center"><a class="link eleven" href="/dashboard/edit/{{id}}">{{name}}</a></h4>
       </div>
+      <div style="width:95%">
+    <img src="https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg" alt="Alps" style="width:70%" class="w3-card-4">
+    </div>
     </div>
       
       
     {{/each}}
-  
+  </section>
 </section>
-{{/if}}
+{{/if}} --}}
+{{#if recipes.length}}
+<div class="w3-container w3-center">
+<div class="row">
+{{#each recipes as |recipes|}}
+<div class="w3-container column" id="rcorners2">
+  <h2 class="w3-center"><a href="/recipe/{{id}}" class="eleven">{{name}}</a></h2>
 
+  <div style="width:95%">
+    <img src="https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg" alt="Alps" style="width:70%" class="w3-card-4">
+    <div class="w3-container w3-center">
+      <p>({{description}})</p>
+    </div>
+  </div>
+</div>
+{{/each}}
+</div>
+</div>
+{{/if}}
 <button type="submit" class="btn"><a class="" href="/dashboard/new">New Recipe</a></button>
 
 <script src="/javascript/add-recipes.js"></script>

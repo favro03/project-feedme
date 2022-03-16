@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbrecipeData => res.json(dbrecipeData))
+    .then(dbRecipeData => res.json(dbRecipeData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -65,12 +65,12 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-    .then(dbrecipeData => {
-      if (!dbrecipeData) {
+    .then(dbRecipeData => {
+      if (!dbRecipeData) {
         res.status(404).json({ message: 'No recipes found with this id' });
         return;
       }
-      res.json(dbrecipeData);
+      res.json(dbRecipeData);
     })
     .catch(err => {
       console.log(err);
@@ -87,7 +87,7 @@ router.post('/', withAuth, (req, res) => {
     description: req.body.description,
     user_id: req.body.user_id
   })
-    .then(dbrecipeData => res.json(dbrecipeData))
+    .then(dbRecipeData => res.json(dbRecipeData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -108,12 +108,12 @@ router.put('/:id', withAuth, (req, res) => {
       }
     }
   )
-    .then(dbrecipeData => {
-      if (!dbrecipeData) {
+    .then(dbRecipeData => {
+      if (!dbRecipeData) {
         res.status(404).json({ message: 'No recipes found with this id' });
         return;
       }
-      res.json(dbrecipeData);
+      res.json(dbRecipeData);
     })
     .catch(err => {
       console.log(err);
@@ -128,12 +128,12 @@ router.delete('/:id', withAuth, (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbrecipeData => {
-      if (!dbrecipeData) {
+    .then(dbRecipeData => {
+      if (!dbRecipeData) {
         res.status(404).json({ message: 'No recipes found with this id' });
         return;
       }
-      res.json(dbrecipeData);
+      res.json(dbRecipeData);
     })
     .catch(err => {
       console.log(err);
