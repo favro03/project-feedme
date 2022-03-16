@@ -324,28 +324,27 @@ h1 {
   .login-link {
     color: var(--dark);
   }
-  nav {
-    display: flex;
-    float: right;
-    flex-direction: row;
-    margin: auto;
-    
+
+  nav {   
+    margin-left: 15%;
 }
 
 nav ul {
     list-style-type: none;
-    float: right;
-
-
+    margin-right: 0;
+ 
 }
 
 nav ul li {
-    display: flex;
+    display: inline-block;
     flex-flow: row;
-    margin-left: 0;
-    padding: 0;
-    background-color: wheat;
-    opacity: 0.8;
+    background-color: rgba(245, 222, 179, 0.741);
+    padding:15px; 
+    border-radius: 25px;
+    border-color: rgba(0, 0, 0, 0.631);
+    border-style: solid;
+    
+
 }
 /* 
 
@@ -366,6 +365,7 @@ nav ul li {
     margin: 5px;
   }
   #rcorners1 {
+    display: flex;
     border-radius: 25px;
     border: 2px solid grey;
     padding: 20px;
