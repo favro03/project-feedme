@@ -1,22 +1,29 @@
-<div class="card">
-    <h3 class="card-header">Edit Recipe</h3>
+
+<section class="w3-container food_form_container">
+<div class="card recipe_form_card">
+
+    <h3 class="card-header recipe_create_header" ><span style="margin-left:38%;" class="recipe_form_label_title">Edit Recipe</span></h3>
     <form class="card-body edit-recipes-form">
-        <label for="recipes-name" class="form-label">Name</label>
+
+        <label for="recipes-name" class="form-label recipe_form_label">Name</label>
         <input name="recipes-name" type="text" value="{{recipes.name}}" class="form-input" />
        
-       <label for="recipes-ingredients" class="form-label">Ingredients</label>
+        <label for="recipes-ingredients" class="form-label recipe_form_label">Ingredients</label>
         <input name="recipes-ingredients" type="text" value="{{recipes.ingredients}}" class="form-input" />
        
-       <label for="recipes-direction" class="form-label">Drections</label>
+        <label for="recipes-direction" class="form-label recipe_form_label">Drections</label>
         <input name="recipes-direction" type="text" value="{{recipes.direction}}" class="form-input" />
        
-       <label for="recipes-description" class="form-label">Description</label>
+        <label for="recipes-description" class="form-label recipe_form_label">Description</label>
         <input name="recipes-description" type="text" value="{{recipes.description}}" class="form-input" />
        
-        <button type="submit" class="btn">Update Recipe</button>
-        <button type="button" class="delete-recipes-btn btn">Delete Recipe</button>
+        <button type="submit" class="btn recipe_form_label_button" style="margin:8px 0;border:2px solid rgba(0, 0, 0, 0.316);">Update Recipe</button>
+        <button type="button" class="delete-recipes-btn btn recipe_form_label_button" style="margin:8px 0;background-color:rgba(255, 0, 0, 0.83);border:2px solid rgba(0, 0, 0, 0.316);">Delete Recipe</button>
     </form>
 </div>
 
+{{> comments recipes.comments}}
+
 <script src="/javascript/edit-recipes.js"></script>
 <script src="/javascript/delete-recipes.js"></script>
+</section>

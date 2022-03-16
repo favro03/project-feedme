@@ -6,10 +6,14 @@
 <div class="w3-container column" id="rcorners2">
   <h2 class="w3-center"><a href="/recipe/{{id}}" class="eleven">{{name}}</a></h2>
 
+  <div >
+        <h4 class=""><a class="eleven link" href="/dashboard/edit/{{id}}">Edit Recipe</a></h4>
+    </div>
+
   <div style="width:95%">
     <img src="https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg" alt="Alps" style="width:70%" class="w3-card-4">
-    <div class="w3-container w3-center">
-      <p>({{description}})</p>
+    <div class="">
+      <p>{{description}}</p>
     </div>
   </div>
 </div>
@@ -17,6 +21,6 @@
 </div>
 </div>
 {{/if}}
-<button type="submit" class="btn recipe_form_btn"><a href="/dashboard/new"><span class="recipe_form_label_button" style="font-weight: bolder;">New Recipe</span></a></button>
+<button type="submit" class="btn recipe_form_btn" style="margin:8px 0px;border:2px solid rgba(0, 0, 0, 0.316);"><a href="/dashboard/new"><span class="recipe_form_label_button" style="font-weight: bolder;">New Recipe</span></a></button>
 
 <script src="/javascript/add-recipes.js"></script>

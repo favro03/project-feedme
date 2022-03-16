@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { Recipes, User, Comment } = require('../../models');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 //GET/POST/PUT/DELETE routes
 
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbRecipeData => res.json(dbRecipeData))
+    .then(dbPostData => res.json(dbPostData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -52,25 +52,25 @@ router.get('/:id', (req, res) => {
     ],
     include: [
       {
+        model: User,
+        attributes: ['username']
+      },
+      {
         model: Comment,
         attributes: ['id', 'comment_text', 'recipes_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
         }
-      },
-      {
-        model: User,
-        attributes: ['username']
       }
     ]
   })
-    .then(dbRecipeData => {
-      if (!dbRecipeData) {
+    .then(dbPostData => {
+      if (!dbPostData) {
         res.status(404).json({ message: 'No recipes found with this id' });
         return;
       }
-      res.json(dbRecipeData);
+      res.json(dbPostData);
     })
     .catch(err => {
       console.log(err);
@@ -85,9 +85,9 @@ router.post('/', withAuth, (req, res) => {
     ingredients: req.body.ingredients,
     direction: req.body.direction,
     description: req.body.description,
-    user_id: req.body.user_id
+    user_id: req.session.user_id
   })
-    .then(dbRecipeData => res.json(dbRecipeData))
+    .then(dbPostData => res.json(dbPostData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -108,12 +108,12 @@ router.put('/:id', withAuth, (req, res) => {
       }
     }
   )
-    .then(dbRecipeData => {
-      if (!dbRecipeData) {
+    .then(dbPostData => {
+      if (!dbPostData) {
         res.status(404).json({ message: 'No recipes found with this id' });
         return;
       }
-      res.json(dbRecipeData);
+      res.json(dbPostData);
     })
     .catch(err => {
       console.log(err);
@@ -128,12 +128,12 @@ router.delete('/:id', withAuth, (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbRecipeData => {
-      if (!dbRecipeData) {
+    .then(dbPostData => {
+      if (!dbPostData) {
         res.status(404).json({ message: 'No recipes found with this id' });
         return;
       }
-      res.json(dbRecipeData);
+      res.json(dbPostData);
     })
     .catch(err => {
       console.log(err);

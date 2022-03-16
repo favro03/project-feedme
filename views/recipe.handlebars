@@ -17,36 +17,37 @@
 </ol> --}}
 
 <div class="w3-container w3-center">
-    
-<div  style="width:100%" class="">
+    <div  style="width:100%" class="">
     <img src="https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg" alt="Alps" style="width:30%; float:right; " class="w3-card-4">
-<div class="w3-container">
-  <h2 class="w3-center"><a href="/recipe/{{id}}" class="eleven">{{recipe.name}}</a></h2>
-  
-<ul class='ingrediants'>
-    {{#each recipe.ingredients}}
-        <li>
-            {{this}}
-        </li>
-    {{/each}}
-</ul>
-  <div style="width:95%">
-    
-    <div class="w3-container w3-center">
-      <ol class='directions'>
-    {{#each recipe.direction}}
-        <li>
-            {{this}}
-        </li>
-    {{/each}}
-</ol>
+        <div class="w3-container">
+        <h2 class="w3-center"><a href="/recipe/{{id}}" class="eleven">{{recipe.name}}</a></h2>
+        
+            <ul class='ingrediants'>
+                {{#each recipe.ingredients}}
+                    <li>
+                        {{this}}
+                    </li>
+                {{/each}}
+            </ul>
+
+            <div style="width:95%">
+                <div class="w3-container w3-center">
+
+                    <ol class='directions'>
+                        {{#each recipe.direction}}
+                        <li>
+                            {{this}}
+                        </li>
+                        {{/each}}
+                    </ol>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-</div>
-</div>
-{{!-- {{#if loggedIn}}
+{{#if loggedIn}}
 <div class="card">
   <h3 class="card-header"></h3>
   <form class="card-body comment-form" id="comment-form">
@@ -58,7 +59,12 @@
 </div>
 {{/if}}
 
+<<<<<<< HEAD
 {{> comments recipe.comments}}
+=======
+{{> comments recipes.comments}}
+
+>>>>>>> feature/style
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-{{/if}} --}}
+{{/if}}
