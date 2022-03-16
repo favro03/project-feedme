@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+DROP DATABASE IF EXISTS feed_me;
+
+CREATE DATABASE feed_me;
+=======
 DROP DATABASE IF EXISTS feedme_db;
 
 CREATE DATABASE feedme_db;
+>>>>>>> 68e820f6d1ced3fe5ebb9014719236001591a70b

@@ -106,7 +106,8 @@ router.get('/recipe/:id', (req, res) => {
 
       // pass data to template
       res.render('recipe', {
-        recipe,  loggedIn: req.session.loggedIn
+        recipe,  
+        loggedIn: req.session.loggedIn
       });
     })
       .catch(err => {

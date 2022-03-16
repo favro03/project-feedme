@@ -1,13 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Recipe extends Model {}
+class Recipes extends Model {}
 
-Recipe.init(
+Recipes.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
@@ -28,17 +27,16 @@ Recipe.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-              model: 'user',
-              key: 'id'
-            }
-        },
         image: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: 'test'
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         }
     },
     {
@@ -49,5 +47,5 @@ Recipe.init(
     }
 );
 
-module.exports = Recipe;
+module.exports = Recipes;
 

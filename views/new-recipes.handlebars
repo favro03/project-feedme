@@ -1,20 +1,15 @@
-<div class="card">
-    <h3 class="card-header">Create A New Recipe</h3>
+
+<section class="w3-container food_form_container">
+<div class="card recipe_form_card">
+    
+    <h3 class="card-header recipe_create_header"><span style="margin-left:38%;" class="recipe_form_label_title">Create A New Recipe</span></h3>
     <form class="card-body new-recipes-form" id="new-recipes-form">
-        <label for="recipes-name" class="form-label">Name</label>
-        <input type="text" id="recipes-name" name="recipes-name" class="form-input" />
 
-        <div class="drop-zone">
-        <span class="drop-zone__prompt">Drop File hear or Click to Upload</span>
-        <input type="file" name="myFile" class="drop-zone__input">
-        </div>
+        <label for="recipes-name " class="form-label"><span class="recipe_form_label">Name</span></label>
+        <textarea placeholder="enter recipe name" autofocus type="text" id="recipes-name" name="recipes-name" class="form-input recipe_form_name" /></textarea>
 
-        <div class="create_ingredients">
-            <h2>Ingredients</h2>
-
-            <ul class="ingredients_list"></ul>
-
-            <textarea class="ingredient_textarea"></textarea>
+        <label class="form-label " for="recipes-ingredients"><span class="recipe_form_label">Ingredients</span></label>
+        <textarea placeholder="(use '|' for new ingredient line) example: 1 tsp salt | 1 tsp pepper" id="recipes-ingredients" name="recipes-ingredients" class="form-input recipe_form_ingredients" /></textarea>
 
             <div>
             <button class="addIngredient" type="button">ADD</button>
@@ -43,5 +38,4 @@
 </div>
 
 <script src="/javascript/add-recipes.js"></script>
-<script src="/javascript/image.js"></script>
-
+</section>
