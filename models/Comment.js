@@ -32,7 +32,8 @@ Comment.init(
             references: {
                 model: 'recipes',
                 key: 'id'
-            }
+            },
+            defaultValue: 1
         }
     },
     {

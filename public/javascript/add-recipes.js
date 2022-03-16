@@ -27,6 +27,20 @@ async function newFormHandler(event) {
       alert(response.statusText);
     }
   }
+
+const addIngredients = () => {
+  const list = document.querySelector('.ingredients_list')
+  const test = document.querySelector('.ingredient_textarea').value;
+  
+  var item = document.createElement('li');
+  item.append(test)
+  console.log(item)
+  list.appendChild(item)
+
+  console.log('is working')
+  document.querySelector('.ingredient_textarea').value = '';
+}
   
   document.querySelector('.new-recipes-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.addIngredient').addEventListener('click', addIngredients);
   
