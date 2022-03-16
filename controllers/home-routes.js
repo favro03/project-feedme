@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connection')
 const { Recipes, User, Comment } = require('../models');
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 //GET/POST/PUT/DELETE routes
 // get all posts for homepage
@@ -112,6 +114,10 @@ router.get('/recipe/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+router.post('/profile-upload-single', upload.single('profile-file'), async (req, res) => {
+  res.send('godd')
+})
 
 
 
