@@ -4,15 +4,29 @@
         <label for="recipes-name" class="form-label">Name</label>
         <input type="text" id="recipes-name" name="recipes-name" class="form-input" />
 
+        <div class="drop-zone">
+        <span class="drop-zone__prompt">Drop File hear or Click to Upload</span>
+        <input type="file" name="myFile" class="drop-zone__input">
+        </div>
 
-        <label class="form-label" for="recipes-ingredients">Ingredients</label>
-        <input id="recipes-ingredients" name="recipes-ingredients" class="form-input" />
+        <div class="create_ingredients">
+            <h2>Ingredients</h2>
+
+            <ul class="ingredients_list"></ul>
+
+            <textarea class="ingredient_textarea"></textarea>
+
+            <div>
+            <button class="addIngredient" type="button">ADD</button>
+        </div>
+        </div>
+        
 
         <label class="form-label" for="recipes-direction">Directions</label>
         <input id="recipes-direction" name="recipes-direction" class="form-input" />
 
         <label class="form-label" for="recipes-description">Description</label>
-        <input id="recipes-description" name="recipes-description" class="form-input" />
+        <input id="recipes-description" name="recipes-description" class="form-input" /> --}}
         <div>
             
         </div>
@@ -21,4 +35,5 @@
 </div>
 
 <script src="/javascript/add-recipes.js"></script>
+<script src="/javascript/image.js"></script>
 
