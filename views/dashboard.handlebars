@@ -1,24 +1,4 @@
-{{!-- {{#if recipes.length}}
-<section class="w3-container w3-center">
-  <div class="w3-container column row" id="rcorners2">
-  <h2 class="w3-center eleven">Your Recipe</h2>
- 
-    {{#each recipes as |recipes|}}
-    
-     <div class="w3-container column" id="rcorners2">
-      <div >
-        <h4 class="w3-center"><a class="link eleven" href="/dashboard/edit/{{id}}">{{name}}</a></h4>
-      </div>
-      <div style="width:95%">
-    <img src="https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg" alt="Alps" style="width:70%" class="w3-card-4">
-    </div>
-    </div>
-      
-      
-    {{/each}}
-  </section>
-</section>
-{{/if}} --}}
+
 {{#if recipes.length}}
 <div class="w3-container w3-center">
 <div class="row">
@@ -37,6 +17,6 @@
 </div>
 </div>
 {{/if}}
-<button type="submit" class="btn"><a class="" href="/dashboard/new">New Recipe</a></button>
+<button type="submit" class="btn recipe_form_btn"><a href="/dashboard/new"><span class="recipe_form_label_button" style="font-weight: bolder;">New Recipe</span></a></button>
 
 <script src="/javascript/add-recipes.js"></script>
