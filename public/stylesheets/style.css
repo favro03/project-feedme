@@ -34,12 +34,56 @@
     line-height: 1.25;
   }
   
+  .w3-center {
+    display:inline-block;
+    width:auto;
+    text-align: center;
+  }
+
+  .w3-container {
+    padding:0.01em 16px;
+  }
+
+  .w3-card-4,.w3-hover-shadow:hover {
+    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+  }
 h1 {
   float: left;
   font-size: 180px;
   color: black;
   
 }
+
+.eleven {
+  font-size:35px;
+  text-align:center; 
+  line-height:2em; 
+  padding-bottom:55px; 
+  font-family:"Playfair Display", 
+  serif; text-transform:uppercase;
+  letter-spacing: 2px; color:#111;
+}
+
+
+.eight{
+  text-align:center;
+ 
+  text-transform:uppercase;
+  font-size:26px; letter-spacing:1px;
+  
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 16px 0;
+  grid-gap: 22px;
+}
+
+.eight:after,.eight h1:before {
+  content: " ";
+  display: block;
+  border-bottom: 2px solid #ccc;
+  background-color:#f8f8f8;
+}
+
 
   .link-color {
     color: var(--tertiary);
@@ -118,17 +162,13 @@ h1 {
   }
 
   .hero {
-    height: 679px;
+    height: 509px;
     width: 100%;
     padding: 5px;
     margin-bottom: 25px;
     background-image: url("../images/hero.jpeg");
     background-size: cover;
     background-position: center;
-}
-
-.hero img {
-  
 }
 
   /* .hero {
@@ -234,9 +274,10 @@ h1 {
     background-size: cover;
     background-position: center;
     padding: 20px;
+    margin: 1%;
     align-items: center;
     /* justify-content: center; */
-    height:460px;
+    height:380px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /* background-color: brown;
     color: #ffffff; */
@@ -251,6 +292,19 @@ h1 {
    
   }
   
+  .column {
+    float: left;
+    width: 32.7%;
+    padding: 10px;
+
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   .card-body {
     padding: 1%;
   }
@@ -273,23 +327,23 @@ h1 {
   nav {
     display: flex;
     float: right;
-    padding-top: 15px;
-    margin-right: 5%;
-    margin-left: 30%;
+    flex-direction: row;
+    margin: auto;
     
 }
 
 nav ul {
     list-style-type: none;
+    float: right;
 
 
 }
 
 nav ul li {
-    display: inline-block;
+    display: flex;
     flex-flow: row;
-    margin-left: 2px;
-    padding: 2px;
+    margin-left: 0;
+    padding: 0;
     background-color: wheat;
     opacity: 0.8;
 }
@@ -304,6 +358,22 @@ nav ul li {
     text-decoration: none;
   } */
   
+  #rcorners2 {
+    border-radius: 25px;
+    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+    padding: 20px;
+    height: 800px;
+    margin: 5px;
+  }
+  #rcorners1 {
+    border-radius: 25px;
+    border: 2px solid grey;
+    padding: 20px;
+    width: 99.5%;
+    height: 100%;
+    margin: .15% .15%;
+  }
+
   footer {
     border-top: 1px solid #ccc;
     display: flex;
