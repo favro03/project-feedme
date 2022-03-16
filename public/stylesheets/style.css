@@ -424,6 +424,71 @@ nav ul li {
     flex-wrap: wrap;
   }
   
+/* *** begin RECIPE INPUT FORMS *** */
+.food_form_container {
+  width: 100%;
+  margin: 15px 0px;
+}
+
+.recipe_form_card {
+  width: 85%;
+  margin: auto;
+}
+
+.recipe_create_header {
+ color: brown;
+}
+
+.recipe_form_label_title {
+  color: burlywood; 
+  font-family: 'Trocchi', serif; 
+  font-size: 40px; 
+}
+
+.recipe_form_label {
+  color: black; 
+  font-family: 'Trocchi', serif; 
+  font-size: 30px; 
+  font-weight:400; 
+  line-height: 48px; 
+  margin-left: 2px;
+
+}
+
+.recipe_form_name {
+  padding: 5px;
+  margin-bottom: 6px;
+}
+
+.recipe_form_ingredients {
+  padding: 5px;
+}
+
+.recipe_form_directions {
+  height: 240px;
+  padding: 5px;
+}
+
+.recipe_form_description {
+  height: 55px;
+  padding: 5px;
+}
+
+.recipe_form_btn {
+  margin-top: 10px;
+  padding: 5px;
+
+}
+
+.recipe_form_label_button {
+  color: black; 
+  font-family: 'Trocchi', serif; 
+  font-size: 35px; 
+  padding: 3px 0;
+}
+
+/* *** end RECIPE INPUT FORMS *** */
+
   .justify-space-between {
     justify-content: space-between;
   }
