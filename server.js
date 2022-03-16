@@ -2,7 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 const session = require('express-session');
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers })
 const path = require('path');
 
 
