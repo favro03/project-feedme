@@ -20,7 +20,6 @@ Comment.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
@@ -28,13 +27,12 @@ Comment.init(
         },
        recipes_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'recipes',
                 key: 'id'
             }
         }
-    },
+        },
     {
         sequelize,
         freezeTableName: true,

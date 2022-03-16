@@ -2,10 +2,10 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const name = document.querySelector('input[name="recipes-name"]').value;
-    const ingredients = document.querySelector('input[name="recipes-ingredients"]').value;
-    const direction = document.querySelector('input[name="recipes-direction"]').value;
-    const description = document.querySelector('input[name="recipes-description"]').value;
+    const name = document.querySelector('textarea[name="recipes-name"]').value;
+    const ingredients = document.querySelector('textarea[name="recipes-ingredients"]').value;
+    const direction = document.querySelector('textarea[name="recipes-direction"]').value;
+    const description = document.querySelector('textarea[name="recipes-description"]').value;
   
     const response = await fetch(`/api/recipes`, {
       method: 'POST',
@@ -14,7 +14,6 @@ async function newFormHandler(event) {
         ingredients,
         direction,
         description
-
       }),
       headers: {
         'Content-Type': 'application/json'
