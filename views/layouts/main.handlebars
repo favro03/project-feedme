@@ -9,7 +9,31 @@
 </head>
 
 <body>
-  <div class="wrapper">
+    <header>
+      <div style="background-color: burlywood; opacity: 0.75; margin-left: 5%;">
+        <a href="/"><h1 ">FeedMe</h1></a>
+        </div>  
+        <nav>
+            <ul style="">
+              {{#if loggedIn}}
+                <li>
+                    <a href="/dashboard" ><h2>Dashboard</h2></a>
+                </li>
+                <li>
+                    <a href="/" id="logout"><h2>Logout</h2></a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+    {{!-- <section class="hero">
+      
+    </section> --}}
+  {{!-- <div class="wrapper">
       <header class="hero">
           <div>
             <nav class"nav">
@@ -25,13 +49,13 @@
           </div>
 
           <h1 class="app-title"><i class="fab "></i>Feed Me</h1>
-      </header>
+      </header> --}}
       
 
-    <main>
+    <div>
       {{{ body }}}
-    </main>
-  </div>
+    </div>
+  {{!-- </div> --}}
 
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>

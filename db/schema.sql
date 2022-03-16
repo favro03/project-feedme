@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS feed_me;
+
+CREATE DATABASE feed_me;

@@ -1,9 +1,13 @@
-{{#each Recipe as |Recipe|}}
-<article class="post">
-  <div class="title">
-  <a href="/recipe/{{id}}">{{name}}</a>
-  <p>({{description}})</p>
+<div style="display: flex;">
+      <section class="">
+      <img src="../sadness.jpg" alt="">
+    </section>
+  {{#each Recipe as |Recipe|}}
+  <article class="post">
+    <div class="title">
+    <a href="/recipe/{{id}}">{{name}}</a>
+    <p>({{description}})</p>
+  </div>
+  </article>
+  {{/each}}
 </div>
-</article>
-{{/each}}
-
