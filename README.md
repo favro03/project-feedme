@@ -16,6 +16,8 @@ You can access the live site here:
 
 https://stark-wave-09776.herokuapp.com/ 
 
+![FeedMe site screenshot](/assets/images/Feed Me.png)
+
 
 ## License
 MIT License
