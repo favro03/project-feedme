@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed Me</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/image.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+  <body>
+    <div></div>
+      <header id="rcorners1">
+        <div style="background-color: burlywood; opacity: 0.85; margin-left: 5%; padding:0px 10px;  border-radius: 25px; border-style:solid; border-color:rgba(0, 0, 0, 0.631)">
+          <a href="/"><h1 >Feed<span style="color:brown;">Me</span></h1></a>
+          </div>  
+          <nav>
+              <ul >
+                {{#if loggedIn}}
+                  <li>
+                      <a href="/dashboard" ><h2>Dashboard</h2></a>
+                  </li>
+                  <li>
+                      <a href="/" id="logout"><h2>Logout</h2></a>
+                  </li>
+                  {{else}}
+                  <li>
+                      <a href="/login"><h2>Login</h2></a>
+                  </li>
+                  {{/if}}
+              </ul>
+          </nav>
+      </header>
+
+      <main>
+        {{{ body }}}
+      </main>
+      <footer>
+        Thanks for visiting!
+      </footer>
+    </div>
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
+
+</html>

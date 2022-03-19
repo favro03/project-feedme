@@ -1,0 +1,27 @@
+
+<div class="w3-container w3-center">
+<div class="row">
+{{#each recipes as |recipes|}}
+<div class="w3-container column" id="rcorners2">
+  <h2 class="w3-center"><a href="/recipes/{{id}}" class="eleven">{{name}}</a></h2>
+  
+
+  <div style="width:95%">
+    
+    <div class="dashboard-image-wrap">
+      {{#if image_url}}
+      <img class="place-image" src="{{image_url}}" title="{{image_url}}" style="width:70%" class="w3-card-4"/>
+      {{else}}
+      <img class="embedded-map" src="/images/no-post-image.png" /></a>
+      {{/if}}
+    </div>
+    {{!-- <img src="https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg" alt="Alps" style="width:70%" class="w3-card-4"> --}}
+    
+    <div class="w3-container">
+      <p>{{description}}</p>
+    </div>
+  </div>
+</div>
+{{/each}}
+</div>
+</div>
