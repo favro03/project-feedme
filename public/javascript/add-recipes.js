@@ -51,38 +51,38 @@ document.querySelector('#upload-image').addEventListener('click', function (even
 }, false);
 
 
-//document.querySelector('.new-recipes-form').addEventListener('submit', newFormHandler);
+document.querySelector('.new-recipes-form').addEventListener('submit', newFormHandler);
 
 
-const addIngredients = () => {
-  const list = document.querySelector('.ingredients_list')
-  const test = document.querySelector('textarea[name="recipes-ingredients"]').value;
+// const addIngredients = () => {
+//   const list = document.querySelector('.ingredients_list')
+//   const test = document.querySelector('textarea[name="recipes-ingredients"]').value;
   
-  var item = document.createElement('li');
-  item.append(test)
-  console.log(item)
-  list.appendChild(item)
+//   var item = document.createElement('li');
+//   item.append(test)
+//   console.log(item)
+//   list.appendChild(item)
 
-  console.log('is working')
-  document.querySelector('textarea[name="recipes-ingredients"]').value = '';
-  }
+//   console.log('is working')
+//   document.querySelector('textarea[name="recipes-ingredients"]').value = '';
+//   }
 
-  const addDirection = () => {
-  const list = document.querySelector('.directions_list')
-  const test = document.querySelector('textarea[name="recipes-direction"]').value;
+//   const addDirection = () => {
+//   const list = document.querySelector('.directions_list')
+//   const test = document.querySelector('textarea[name="recipes-direction"]').value;
   
-  var item = document.createElement('li');
-  item.append(test)
-  console.log(item)
-  list.appendChild(item)
+//   var item = document.createElement('li');
+//   item.append(test)
+//   console.log(item)
+//   list.appendChild(item)
 
-  console.log('is working')
-  document.querySelector('textarea[name="recipes-direction"]').value = '';
-}
+//   console.log('is working')
+//   document.querySelector('textarea[name="recipes-direction"]').value = '';
+// }
 
 
 
-  document.querySelector('.addIngredient').addEventListener('click', addIngredients);
-  document.querySelector('.addDirection').addEventListener('click', addDirection);
+  // document.querySelector('.addIngredient').addEventListener('click', addIngredients);
+  // document.querySelector('.addDirection').addEventListener('click', addDirection);
   document.querySelector('.new-recipes-form').addEventListener('submit', newFormHandler);
   
